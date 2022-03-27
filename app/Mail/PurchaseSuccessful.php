@@ -28,6 +28,6 @@ class PurchaseSuccessful extends Mailable
      */
     public function build()
     {
-        return $this->view('email.purchased');
+        return $this->view('front.emails.purchased');
     }
 }

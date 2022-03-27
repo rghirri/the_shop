@@ -24,6 +24,7 @@
  <link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
  <link href="{{ asset('app/style/type/fontello.css') }}" rel="stylesheet">
  <link href="{{ asset('app/style/type/budicons.css') }}" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
  <!-- products page -->
 
 
@@ -132,8 +133,25 @@
  <script src="{{ asset('app/style/js/jquery.themepunch.tools.min.js') }}"></script>
  <script src="{{ asset('app/style/js/jquery.divas-1.0.min.js') }}"></script>
  <script src="{{ asset('app/style/js/imagesloaded.pkgd.min.js') }}"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
  <script src="{{ asset('app/style/js/scripts.js') }}"></script>
  <!-- products page -->
+
+
+ <script>
+ @if(Session::has('success'))
+
+ toastr.success('{{ Session::get('
+  success ') }}')
+
+ @endif
+ @if(Session::has('info'))
+
+ toastr.info('{{ Session::get('
+  info ') }}')
+
+ @endif
+ </script>
 
 
 </body>

@@ -111,7 +111,7 @@
       </h3>
       <h5 class="cart-total-total">
        Total:
-       <span class="price">$100.97</span>
+       <span class="price">${{ Cart::getSubTotal() }}</span>
       </h5>
       <a href="{{ route('cart.checkout') }}" class="btn btn-medium btn--light-green btn-hover-shadow">
        <span class="text">Checkout</span>

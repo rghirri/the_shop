@@ -5,7 +5,7 @@
  <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Email</title>
+ <title>Purchase Successful</title>
 </head>
 
 <body>
@@ -15,7 +15,8 @@
   pellentesque lorem tempor quam metus mi fusce himenaeos eros cras laoreet varius proin tortor tristique nulla
   consectetur nibh quam amet mattis porta dui id semper sagittis ultricies nec arcu quis lorem dictum mauris dolor
   faucibus fermentum quisque posuere dui justo consequat finibus vehicula congue dolor augue donec elit lectus efficitur
-  varius pharetra luctus venenatis viverra ante amet bibendum leo tincidunt tempor fames mi elit at</p>
+  varius pharetra luctus venenatis viverra ante amet bibendum leo tincidunt tempor fames mi elit at
+ </p>
 </body>
 
 </html>

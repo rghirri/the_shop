@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Session;
 
 class ShoppingController extends Controller
 {
@@ -20,6 +21,10 @@ class ShoppingController extends Controller
             'price' => $pdt->price,
             'associatedModel' => 'App\Models\Product'
         ]);
+
+       // Session::flash('success', 'Purchase successfull added to cart.');
+
+        session()->flash('success', 'Purchase successfull added to cart.');
 
         return redirect()->route('cart');
     }
@@ -57,6 +62,12 @@ class ShoppingController extends Controller
             'price' => $pdt->price,
             'associatedModel' => 'App\Models\Product'
         ]);
+
+        
+       // Session::flash('success', 'Purchase successfull added to cart.');
+
+        session()->flash('success', 'Purchase successfull added to cart.');
+
 
         return redirect()->route('cart');
 

@@ -1,6 +1,7 @@
 @extends('layouts.product')
 
 @section('content')
+
 <div class="container-fluid">
  <div class="row medium-padding120 bg-border-color">
   <div class="container">
@@ -91,6 +92,7 @@
          <span style="float: right;">
 
           <form action="{{ route('cart.checkout') }}" method="POST">
+
            {{ csrf_field() }}
            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="pk_test_51Hfob3BhIJ1kVATV2cxq4DluLCCh1lisUcxFgDhyUCBC3Cp1qO100P9Ujirq6oHc6viPwI25rcnFjaEahcBKVJ7q00maW50BYz"
@@ -98,6 +100,7 @@
             data-description="Buy some books" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
             data-locale="auto">
            </script>
+
           </form>
 
          </span>
@@ -105,6 +108,7 @@
        </div>
 
       </form>
+
      </div>
     </div>
 
@@ -112,4 +116,5 @@
   </div>
  </div>
 </div>
+
 @endsection

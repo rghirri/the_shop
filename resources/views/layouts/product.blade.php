@@ -18,6 +18,7 @@
  <link rel="stylesheet" type="text/css" href="{{ asset('app-shop/css/swiper.min.css') }}" />
  <link rel="stylesheet" type="text/css" href="{{ asset('app-shop/css/primary-menu.css') }}" />
  <link rel="stylesheet" type="text/css" href="{{ asset('app-shop/css/magnific-popup.css') }}" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
 
  <!--Styles for RTL-->
 
@@ -84,8 +85,27 @@
  <script src="{{ asset('app-shop/js/velocity.min.js') }}"></script>
  <script src="{{ asset('app-shop/js/ScrollMagic.min.js') }}"></script>
  <script src="{{ asset('app-shop/js/animation.velocity.min.js') }}"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
  <!-- ...end JS Script -->
+
+
+ <script>
+ @if(Session::has('success'))
+
+ toastr.success('{!! session('
+  success ') !!}')
+
+ @endif
+
+ @if(Session::has('info'))
+
+ toastr.info('{!! session('
+  info ') !!}')
+
+ @endif
+ </script>
+
 </body>
 
 <!-- Mirrored from theme.crumina.net/html-seosight/16_shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Nov 2016 13:03:04 GMT -->

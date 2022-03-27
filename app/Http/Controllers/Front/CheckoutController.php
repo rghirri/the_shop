@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use Mail;
 use Cart;
+use Illuminate\Contracts\Session\Session as SessionSession;
 use Stripe\Charge;
 use Stripe\Stripe;
 
@@ -20,6 +21,14 @@ class CheckoutController extends Controller
     public function index()
     {
         
+        if(\Cart::getContent()->count() == 0)
+        {
+
+            Session::flash('info', 'Your cart is still empty. do some shopping.');
+            return redirect()->back();
+
+        }
+
         return view('front.products.checkout');
 
     }
@@ -27,7 +36,9 @@ class CheckoutController extends Controller
     public function pay()
     {
 
-         Stripe::setApiKey("sk_test_51Hfob3BhIJ1kVATVzouYZFsDMQHGBqaInA5D7OACQ42r0CTCsHKVnYz1cokr1r1mtOqqDlHzKDT2qi6x9mBJ60Ak00xa6UzUKu");
+        //dd(request()->all());
+
+        Stripe::setApiKey("sk_test_51Hfob3BhIJ1kVATVzouYZFsDMQHGBqaInA5D7OACQ42r0CTCsHKVnYz1cokr1r1mtOqqDlHzKDT2qi6x9mBJ60Ak00xa6UzUKu");
 
         $charge = Charge::create([
             'amount' => \Cart::getSubTotal() * 100,
@@ -38,81 +49,14 @@ class CheckoutController extends Controller
 
         //dd('Purchase successfull. wait for our email.');
 
-
         Session::flash('success', 'Purchase successfull. wait for our email.');
 
-        Cart::destroy();
+        \Cart::clear();
 
-        Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);
+        \Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);  // The email address needs to be a working email
 
-       return redirect('/');
+        return redirect('/products');
 
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
