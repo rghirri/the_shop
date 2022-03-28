@@ -59,7 +59,7 @@ class SliderController extends Controller
         HomeSlider::create([
 
             'title'       =>  $title,
-            'slider' =>  $image
+            'slider'      =>  $image
 
         ]);
 

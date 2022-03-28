@@ -1,10 +1,10 @@
-@extends('layouts.product')
+@extends('layouts.front')
 
 @section('content')
 
 <div class="container-fluid">
  <div class="row bg-border-color medium-padding120">
-  <div class="container">
+  <div class="container" style="margin-top:300px;">
    <div class="row">
     <div class="col-lg-12">
      <div class="cart">

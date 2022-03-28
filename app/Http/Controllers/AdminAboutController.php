@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\About;
 
-class AboutController extends Controller
+class AdminAboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('front.about.index')->with('abouts', About::all());
+        return view('admin.About.index')->with('abouts', About::all()); 
     }
 
     /**
@@ -25,7 +24,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.About.create');
     }
 
     /**
@@ -36,7 +35,39 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //dd(request()->all());
+
+        $image = $request->image->store('About');
+
+        // dd($image);
+
+        About::create([
+
+            'image'           => $image,
+            'name'            => $request->name,
+            'role'            => $request->role,
+            'content'         => $request->content,
+            'feedback'        => $request->feedback,
+            'customerName'    => $request->customer_name,
+            'intro'           => $request->intro,
+            'skill'           => $request->skill,
+            'percent'         => $request->percent,
+            'tabOneTitle'     => $request->tab_one,
+            'tabOneContent'   => $request->tab_one_content,
+            'tabTwoTitle'     => $request->tab_two,
+            'tabTwoContent'   => $request->tab_two_content,
+            'tabThreeTitle'   => $request->tab_three,
+            'tabThreeContent' => $request->tab_three_content
+
+        ]);
+
+        //dd($slider);
+
+        session()->flash('success', 'About Page Created Successfully.');
+        // Redirect user
+        return redirect(route('adminAbout.index'));
+        
     }
 
     /**

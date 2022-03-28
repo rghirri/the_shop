@@ -15,9 +15,9 @@
        data-bgposition="right top" data-kenburns="on" data-duration="12000" data-ease="Power0.easeInOut"
        data-bgfit="115" data-bgfitend="100" data-bgpositionend="center bottom">
       <div class="caption sfr title light-layer" data-x="745" data-y="400" data-speed="700" data-start="2300"
-       data-easing="Sine.easeOut">Nature Photography</div>
+       data-easing="Sine.easeOut">Fashion Studio</div>
       <div class="caption sfr lead light-layer" data-x="745" data-y="454" data-speed="700" data-start="2800"
-       data-easing="Sine.easeOut">Pellentesque ornare sem lacinia quam</div>
+       data-easing="Sine.easeOut">The Latest Fashion You Can Find</div>
      </li>
      @endforeach
     </ul>
@@ -26,13 +26,26 @@
   </div>
  </div>
 </div>
+
+
+<div class="light-wrapper">
+ <div class="divide70"></div>
+ <h3 class="section-title text-center">Check Out Our Latest Products</h3>
+ <div class="text-center"> <a href="{{ route('products.index') }}" class="btn btn-large fixed-width">More Products</a>
+  <a href="{{ route('contact.index') }}" class="btn btn-large btn-maroon fixed-width">Contact Us</a>
+ </div>
+</div>
+
+
 <!-- /.light-wrapper -->
 <div class="light-wrapper">
  <div class="container inner">
 
   @foreach($services as $service)
-  <h1 class="intro text-center">{{ $service->title }}</h1>
-  <p class="lead main text-center">{!! $service->content !!}</p>
+  <div style="margin-bottom:50px;">
+   <h1 class="intro text-center">{{ $service->title }}</h1>
+   <p class="lead main text-center">{!! $service->content !!}</p>
+  </div>
   @endforeach
 
   <h3 class="section-title pull-left">Our Awesome Collection</h3>
@@ -61,15 +74,10 @@
   </div>
   <!-- /.portfolio -->
  </div>
+
  <!-- /.container -->
 </div>
 
-<div class="light-wrapper">
- <div class="divide70"></div>
- <h3 class="section-title text-center">Check Out Our Latest Products</h3>
- <div class="text-center"> <a href="#" class="btn btn-large fixed-width">More Products</a> <a href="#"
-   class="btn btn-large btn-maroon fixed-width">Contact Us</a> </div>
-</div>
 
 <!-- /.light-wrapper -->
 

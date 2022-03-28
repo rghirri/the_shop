@@ -15,7 +15,9 @@ class FrontProductController extends Controller
      */
     public function index()
     {
+
         return view('front.products.index', ['products' => Product::paginate(3)]);
+        
     }
 
     /**

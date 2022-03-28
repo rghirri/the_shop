@@ -11,6 +11,7 @@ use App\Http\Controllers\Front\CheckoutController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\GridController;
+use App\Http\Controllers\AdminAboutController;
 
 
 
@@ -84,3 +85,8 @@ Route::post('/cart/checkout', [ CheckoutController::class, 'pay' ])->name('cart.
   Route::get('trashed-grid', [ GridController::class, 'trashed' ] )->name('trashed-grid.index');
  
  Route::put('restore-grid/{grid}', [ GridController::class, 'restore' ] )->name('restore-grid');
+
+ /**
+  * About
+  */
+  Route::resource('adminAbout', AdminAboutController::class);

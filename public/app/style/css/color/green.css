@@ -77,7 +77,7 @@ ul.circled li:before {
 .pagination ul > li > a:focus,
 .pagination ul > .active > a,
 .pagination ul > .active > span {
-    background: #4b8e8e;
+    background: #e7c9c6;
 }
 .services-1 .icon i.icn {
     color: #57a4a4;

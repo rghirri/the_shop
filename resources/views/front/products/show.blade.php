@@ -1,10 +1,10 @@
-@extends('layouts.product')
+@extends('layouts.front')
 
 @section('content')
 
 <div class="container">
  <div class="row medium-padding120">
-  <div class="product-details">
+  <div class="product-details" style="margin-top:300px">
    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
     <div class="product-details-thumb">
      <div class="swiper-container" data-effect="fade">
@@ -12,7 +12,7 @@
       <div class="swiper-wrapper">
        <!-- Slides -->
        <div class="product-details-img-wrap swiper-slide">
-        <img src="{{ asset($product->image) }}" alt="product" data-swiper-parallax="-10">
+        <img src="{{ asset($product->image) }}" width="400" alt="product" data-swiper-parallax="-10">
        </div>
       </div>
      </div>
