@@ -10,8 +10,6 @@
 
  <title>{{ config('app.name', 'Laravel') }}</title>
 
- <!-- Scripts -->
- <script src="{{ asset('js/app.js') }}" defer></script>
 
  <!-- Fonts -->
  <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,14 +17,17 @@
 
  <!-- Styles -->
  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+ @yield('css')
+
 </head>
 
 <body>
  <div id="app">
   <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
    <div class="container">
-    <a class="navbar-brand" href="{{ url('/') }}">
-     {{ config('app.name', 'Laravel') }}
+    <a class="navbar-brand" href="{{ route('homepage.index') }}">
+     <img src="{{ asset('app/style/images/fs_logo.png') }}" alt="logo" class="img-fluid" />
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -36,8 +37,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <!-- Left Side Of Navbar -->
      <ul class="navbar-nav me-auto">
-      <li class="nav-item"><a class="nav-link active" href="{{ route('admin-product.index') }}">Products</a></li>
-      <li class="nav-item"><a class="nav-link" href="{{ route('admin-product.create') }}">New Products</a></li>
+      <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Home
+       </a>
+       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="{{ route('slider.index') }}">Slider</a></li>
+        <li><a class="dropdown-item" href="{{ route('services.index') }}">Services</a></li>
+        <li><a class="dropdown-item" href="{{ route('grid.index') }}">Product Grid</a></li>
+       </ul>
+      </li>
+      <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Products
+       </a>
+       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li class="nav-item"><a class="nav-link active" href="{{ route('admin-product.index') }}">All Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin-product.create') }}">Add New Products</a></li>
+       </ul>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="{{ route('admin-product.create') }}">About</a></li>
      </ul>
 
      <!-- Right Side Of Navbar -->
@@ -80,9 +101,24 @@
   </nav>
 
   <main class="py-4">
-   @yield('content')
+   <div class="container">
+    @yield('content')
+   </div>
   </main>
  </div>
+
+ <!-- Scripts -->
+
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+ <!-- Scripts -->
+ <script src="{{ asset('js/app.js') }}"></script>
+
+ @yield('scripts')
+
+
+
 </body>
 
 </html>

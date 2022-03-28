@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\HomeSlider;
+use App\Http\Requests\CreateServiceRequest;
 use App\Models\Services;
-use App\Models\ProductsGrid;
 
-
-class HomePageController extends Controller
+class ServicesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +15,7 @@ class HomePageController extends Controller
      */
     public function index()
     {
-        return view('front.home.index')
-               ->with('sliders', HomeSlider::all())
-               ->with('services', Services::all())
-               ->with('grids', ProductsGrid::all());
+        return view('admin.Services.index')->with('services', Services::all()); 
     }
 
     /**
@@ -31,7 +25,7 @@ class HomePageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.Services.create');
     }
 
     /**
@@ -42,7 +36,27 @@ class HomePageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+      //  dd(request()->all());
+
+        Services::create([
+
+            'title'         => $request->title,
+            'content'       => $request->content,
+            'one'           => $request->one,
+            'onedetails'    => $request->onedetails,
+            'two'           => $request->two,
+            'twodetails'    => $request->twodetails,
+            'three'         => $request->three,
+            'threedetails'  => $request->threedetails
+        ]);
+
+        // //dd($slider);
+
+        session()->flash('success', 'Services created successfully.');
+        // Redirect user
+        return redirect(route('services.index'));
+
     }
 
     /**

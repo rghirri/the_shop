@@ -27,17 +27,6 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
  <!-- products page -->
 
-
- <link rel="stylesheet" type="text/css" href="app-shop/css/styles.css">
-
-
- <!--Plugins styles-->
-
- <link rel="stylesheet" type="text/css" href="app-shop/css/jquery.mCustomScrollbar.min.css">
- <link rel="stylesheet" type="text/css" href="app-shop/css/swiper.min.css">
- <link rel="stylesheet" type="text/css" href="app-shop/css/primary-menu.css">
- <link rel="stylesheet" type="text/css" href="app-shop/css/magnific-popup.css">
-
  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
  <!--[if lt IE 9]>
       <script src="style/js/html5shiv.js"></script>

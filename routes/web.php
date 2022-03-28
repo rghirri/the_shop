@@ -8,6 +8,9 @@ use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\FrontProductController;
 use App\Http\Controllers\Front\ShoppingController;
 use App\Http\Controllers\Front\CheckoutController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\GridController;
 
 
 
@@ -33,9 +36,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // admin
 Route::resource('admin-product', AdminProductController::class);
 
-
 //  front
-Route::resource('homepage', HomePageController::class);
+//Route::resource('homepage', HomePageController::class);
+Route::get('/', [ HomePageController::class, 'index' ])->name('homepage.index');
 
 Route::resource('about', AboutController::class);
 
@@ -56,3 +59,28 @@ Route::get('/cart/checkout', [ CheckoutController::class, 'index' ])->name('cart
 Route::get('/cart/checkout', [ CheckoutController::class, 'index' ])->name('cart.checkout');
 
 Route::post('/cart/checkout', [ CheckoutController::class, 'pay' ])->name('cart.checkout');
+
+// Admin
+/**
+ * Slider
+ */
+ Route::resource('slider', SliderController::class);
+
+ Route::get('trashed-slider', [ SliderController::class, 'trashed' ] )->name('trashed-sliders.index');
+ 
+ Route::put('restore-slider/{slider}', [ SliderController::class, 'restore' ] )->name('restore-slider');
+
+/**
+ * Sevices
+ */
+  Route::resource('services', ServicesController::class);
+
+
+/**
+ * Products Grid
+ */
+  Route::resource('grid', GridController::class);
+
+  Route::get('trashed-grid', [ GridController::class, 'trashed' ] )->name('trashed-grid.index');
+ 
+ Route::put('restore-grid/{grid}', [ GridController::class, 'restore' ] )->name('restore-grid');
