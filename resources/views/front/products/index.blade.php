@@ -33,6 +33,7 @@
        <span class="text">Add to Cart</span>
        <i class="seoicon-commerce"></i>
       </a>
+
      </div>
     </div>
 
